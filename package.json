@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sajeeva Hasith",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline-python": "^3.21.2"
+  }
 }
