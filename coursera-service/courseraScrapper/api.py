@@ -1,9 +1,3 @@
-# vim: set fileencoding=utf8 :
-"""
-This module contains implementations of different APIs that are used by the
-downloader.
-"""
-
 import os
 import re
 import json
@@ -38,22 +32,17 @@ from define import (OPENCOURSE_SUPPLEMENT_URL,
                      OPENCOURSE_REFERENCE_ITEM_URL,
                      OPENCOURSE_PROGRAMMING_IMMEDIATE_INSTRUCTIOINS_URL,
                      OPENCOURSE_PEER_ASSIGNMENT_INSTRUCTIONS,
-
-                     # New feature, Notebook (Python Jupyter)
                      OPENCOURSE_NOTEBOOK_DESCRIPTIONS,
                      OPENCOURSE_NOTEBOOK_LAUNCHES,
                      OPENCOURSE_NOTEBOOK_TREE,
                      OPENCOURSE_NOTEBOOK_DOWNLOAD,
-
                      POST_OPENCOURSE_API_QUIZ_SESSION,
                      POST_OPENCOURSE_API_QUIZ_SESSION_GET_STATE,
                      POST_OPENCOURSE_ONDEMAND_EXAM_SESSIONS,
                      POST_OPENCOURSE_ONDEMAND_EXAM_SESSIONS_GET_STATE,
-
                      INSTRUCTIONS_HTML_INJECTION_PRE,
                      INSTRUCTIONS_HTML_MATHJAX_URL,
                      INSTRUCTIONS_HTML_INJECTION_AFTER,
-
                      IN_MEMORY_EXTENSION,
                      IN_MEMORY_MARKER)
 
@@ -66,22 +55,9 @@ class QuizExamToMarkupConverter(object):
     Converts quiz/exam JSON into semi HTML (Coursera Markup) for local viewing.
     The output needs to be further processed by MarkupToHTMLConverter.
     """
-    KNOWN_QUESTION_TYPES = ('mcq',
-                            'mcqReflect',
-                            'checkbox',
-                            'singleNumeric',
-                            'textExactMatch',
-                            'mathExpression',
-                            'regex',
-                            'reflect')
+    KNOWN_QUESTION_TYPES = ('mcq','mcqReflect','checkbox','singleNumeric','textExactMatch','mathExpression','regex','reflect')
 
-    # TODO: support live MathJAX preview rendering for mathExpression
-    # and regex question types
-    KNOWN_INPUT_TYPES = ('textExactMatch',
-                         'singleNumeric',
-                         'mathExpression',
-                         'regex',
-                         'reflect')
+    KNOWN_INPUT_TYPES = ('textExactMatch','singleNumeric','mathExpression','regex','reflect')
 
     def __init__(self, session):
         self._session = session
